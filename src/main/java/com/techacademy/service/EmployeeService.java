@@ -59,20 +59,24 @@ public class EmployeeService {
             return ErrorKinds.NOTFOUND_ERROR;
         }
 
-     /* パスワードチェック
-        ErrorKinds result = employeePasswordCheck(employee);
-        if (ErrorKinds.CHECK_OK != result) {
-            return result;
-        }*/
 
         dbEmployee.setName(employee.getName());
-        dbEmployee.setPassword(employee.getPassword());
         dbEmployee.setRole(employee.getRole());
         dbEmployee.setUpdatedAt(LocalDateTime.now());
 
+        // パスワードチェック
+        if(employee.getPassword() != null && !employee.getPassword().isEmpty())  {
+        ErrorKinds result = employeePasswordCheck(employee);
+        if (ErrorKinds.CHECK_OK != result) {
+            return result;
+        }
+
+        dbEmployee.setPassword(employee.getPassword());
+        }
         employeeRepository.save(dbEmployee);
         return ErrorKinds.SUCCESS;
-    }
+
+        }
 
     // 従業員削除
     @Transactional
