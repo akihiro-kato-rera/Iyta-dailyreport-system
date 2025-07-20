@@ -52,10 +52,17 @@ public class EmployeeController {
     //　従業員更新画面
     @GetMapping(value = "/{code}/update")
     public String edit(@PathVariable("code") String code,Model model) {
+        if(code != null) {
+
+
 
         model.addAttribute("employee",employeeService.findByCode(code));
         model.addAttribute("code",code);
+
         return "employees/update";
+    }else {
+        return "employees/update";
+        }
     }
 
     // 従業員新規登録画面
@@ -114,7 +121,7 @@ public class EmployeeController {
 
         // 入力チェック
         if (res.hasErrors()) {
-            return edit(code,model);
+            return edit(null,model);
         }
 
             ErrorKinds result = employeeService.update(employee,code);
