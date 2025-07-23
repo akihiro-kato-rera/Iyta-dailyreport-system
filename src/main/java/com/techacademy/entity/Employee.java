@@ -1,4 +1,3 @@
-
 package com.techacademy.entity;
 
 import java.time.LocalDateTime;
@@ -72,7 +71,7 @@ public class Employee {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+   /* @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Reports> reportsList;
-
+*/
 }

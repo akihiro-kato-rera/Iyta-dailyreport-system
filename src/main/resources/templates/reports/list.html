@@ -27,7 +27,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="employee:${employeeList}">
+                                        <tr th:each="reports:${reportsList}">
                                             <td class="align-middle" th:text="${employee.code}"></td>
                                             <td class="align-middle" th:text="${employee.name}"></td>
                                             <td class="align-middle"><a th:href="@{/employees/{code}/(code=${employee.code})}" class="btn btn-primary">詳細</a></td>
@@ -38,7 +38,7 @@
                         </div>
                         <p class="mb-3" th:text="'（ 全' + ${listSize} + '件 ）'">
                         <div>
-                            <a th:href="@{/employees/add}" class="btn btn-primary">登録</a>
+                            <a th:href="@{/reports/add}" class="btn btn-primary">登録</a>
                         </div>
                     </div>
                 </div>

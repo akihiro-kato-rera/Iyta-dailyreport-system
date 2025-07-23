@@ -21,7 +21,7 @@ import lombok.Data;
 @SQLRestriction("delete_flg = false")
 public class Reports {
 
-   /* public static enum Role {
+    public static enum Role {
         GENERAL("一般"), ADMIN("管理者");
 
         private String name;
@@ -33,7 +33,7 @@ public class Reports {
         public String getValue() {
             return this.name;
         }
-    }*/
+    }
 
     // ID
     @Id
@@ -77,8 +77,8 @@ public class Reports {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+  /*  @ManyToOne
     @JoinColumn(name = "employee_code", referencedColumnName = "code", nullable = false)
     private Employee employee;
-
+*/
 }
