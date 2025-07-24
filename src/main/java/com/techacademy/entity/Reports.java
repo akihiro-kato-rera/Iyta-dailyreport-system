@@ -37,14 +37,10 @@ public class Reports {
 
     // ID
     @Id
-    @Column(length = 10)
-    @NotEmpty
-    @Length(max = 10)
     private Integer id;
 
     // 日付
     @Column(nullable = false)
-    @NotEmpty
     private LocalDate reportDate;
 
     // タイトル
@@ -58,11 +54,7 @@ public class Reports {
     @NotEmpty
     private String content;
 
-    //　社員番号
-    @Column(length = 10, nullable = false)
-    @NotEmpty
-    @Length(max = 10)
-    private String employeeCode;
+
 
     // 削除フラグ(論理削除を行うため)
     @Column(columnDefinition="TINYINT", nullable = false)
@@ -77,8 +69,8 @@ public class Reports {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-  /*  @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "employee_code", referencedColumnName = "code", nullable = false)
     private Employee employee;
-*/
+
 }

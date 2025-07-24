@@ -1,4 +1,4 @@
-/*package com.techacademy.service;
+package com.techacademy.service;
 
 import java.util.List;
 
@@ -18,6 +18,23 @@ public class ReportsService {
 
     // 日報一覧表示処理
     public List<Reports> findAll() {
-        return reportsRepository.findAll();
+        return reportsRepository.findAllByOrderByReportDateDesc();
     }
-}*/
+
+    public Reports findById(Integer id) {
+        return reportsRepository.findById(id).orElse(null);
+    }
+
+    public Reports save(Reports report) {
+        return reportsRepository.save(report);
+    }
+
+    public void delete(Integer id) {
+        Reports report = findById(id);
+        if(report != null) {
+            report.setDeleteFlg(true);
+            reportsRepository.save(report);
+        }
+    }
+
+}
