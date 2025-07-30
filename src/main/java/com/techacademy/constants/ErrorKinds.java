@@ -21,8 +21,12 @@ public enum ErrorKinds {
     // チェックOK
     CHECK_OK,
 
+    UNKNOWN_ERROR,
+
     NOTFOUND_ERROR,
     // 正常終了
     SUCCESS;
+
+
 
 }
