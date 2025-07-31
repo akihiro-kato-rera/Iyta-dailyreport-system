@@ -23,8 +23,13 @@ public class ReportsService {
     }
 
     // 日報一覧表示処理
-    public List<Reports> findAll() {
-        return reportsRepository.findAllByOrderByReportDateDesc();
+    public List<Reports> getReportsList(Employee loginUser) {
+        if(loginUser.getRole() == Employee.Role.ADMIN) {
+            return reportsRepository.findByDeleteFlgFalse()  ;
+
+        }else {
+        return reportsRepository.findByEmployeeAndDeleteFlgFalse(loginUser);
+    }
     }
 
     public Reports findById(Integer id) {

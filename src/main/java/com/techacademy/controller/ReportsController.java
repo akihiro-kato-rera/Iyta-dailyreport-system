@@ -36,9 +36,9 @@ public class ReportsController {
 
  // 日報一覧画面
     @GetMapping
-    public String list(Model model) {
+    public String list(Model model,@AuthenticationPrincipal UserDetail userDetail) {
 
-        List<Reports> reportsList = reportsService.findAll();
+        List<Reports> reportsList = reportsService.getReportsList(userDetail.getEmployee());
         model.addAttribute("listSize", reportsList.size());
         model.addAttribute("reportsList", reportsList);
 

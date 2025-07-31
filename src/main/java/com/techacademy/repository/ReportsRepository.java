@@ -16,4 +16,8 @@ public interface ReportsRepository extends JpaRepository<Reports,Integer>  {
 
     boolean existsByEmployeeAndReportDateAndIdNotAndDeleteFlgFalse(Employee employee, LocalDate reportDate,
             Integer Id);
+
+    List<Reports> findByDeleteFlgFalse();
+
+    List<Reports> findByEmployeeAndDeleteFlgFalse(Employee employeee);
 }
